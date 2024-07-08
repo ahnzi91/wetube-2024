@@ -7,9 +7,13 @@ import userRouter from "./routers/userRouter";
 
 const PORT = 4000;
 
-// // Creates An Express Application
+console.log(process.cwd());
+
 const app = express();
 const logger = morgan("dev");
+
+app.set("view engine", "pug");
+
 app.use(logger);
 
 app.use("/", globalRouter);

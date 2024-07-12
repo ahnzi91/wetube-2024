@@ -41,12 +41,8 @@ export const getEdit = (req, res) => {
 };
 
 export const postEdit = (req, res) => {
-    
+    const { id } = req.params;
+    const { title } = req.body;
+    videos[id - 1].title = title;
+    return res.redirect(`/videos/${id}`);
 };
-
-export const search = (req, res) => res.send("Search");
-export const upload = (req, res) => res.send("Upload");
-export const deleteVideo = (req, res) => {
-    console.log(req.params);
-    return res.send("Delete Video");
-}

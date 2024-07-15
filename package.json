@@ -7,7 +7,7 @@
     "url": "git+https://github.com/ahnzi91/wetube-2024.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "dev": "nodemon --exec babel-node src/init.js"
   },
   "author": "Ahn Ji Hoon<ajh887@naver.com>",
   "license": "MIT",

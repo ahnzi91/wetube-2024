@@ -1,8 +1,14 @@
-import Video from "../models/Video";
+import Video from "../models/Video.js";
 
-export const home =  (req, res) => {
-    Video.find({}, (error, videos) => {});
-    res.render("home", { pageTitle: "Home" });
+export const home = async (req, res) => {
+    console.log("Starting Search");
+    Video.find().then((models) => {
+        console.log("Finished Search");
+    }).catch((error) => {
+        console.log(error);
+    });
+    console.log("I should be the last one");
+    return res.render("home", { pageTitle: "Home", videos: [] });
 };
 
 export const watch = (req, res) => {

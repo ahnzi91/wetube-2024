@@ -37,9 +37,9 @@ export const getUpload = (req, res) => {
     return res.render("Upload", { pageTitle: "Upload Video" });
 };
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
     const { title, description, hashtags } = req.body;
-    const video = new Video({
+    await Video.create({
         title,
         description,
         createdAt: Date.now(),
@@ -47,8 +47,7 @@ export const postUpload = (req, res) => {
         meta: {
             views: 0,
             rating: 0
-        }
+        },
     });
-    console.log(video);
     return res.redirect("/");
 };

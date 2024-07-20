@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import session from "express-session";
 
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
@@ -13,6 +14,11 @@ app.set("views", process.cwd() + "/src/views");
 
 app.use(logger);
 app.use(express.urlencoded({ extended: true })); // form을 Javascript로 바꿔주는 middleware
+app.use(session({
+    secret: "Hello!",
+    resave: true,
+    saveUninitialized: true,
+}));
 
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
